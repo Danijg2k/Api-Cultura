@@ -1,0 +1,20 @@
+<ngb-carousel *ngIf="imagenes" class="container-fluid carousel-fade" id="carouselDiv">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="imagenes[0]" alt="Primera imagen">
+    </div>
+    <div class="carousel-caption">
+      <h3>API-Cultura</h3>
+      <p>De la huerta a tu plato</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="imagenes[1]" alt="Primera imagen">
+    </div>
+    <div class="carousel-caption">
+      <h3>API-Cultura</h3>
+      <p>De la huerta a tu plato</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
