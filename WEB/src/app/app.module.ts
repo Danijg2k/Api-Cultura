@@ -13,6 +13,7 @@ import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { CuerpoComponent } from './components/cuerpo/cuerpo.component';
 import { PieComponent } from './components/pie/pie.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ErrorComponent } from './components/error/error.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CabeceraComponent,
     CuerpoComponent,
     PieComponent,
+    ErrorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule,HttpClientModule,NgChartsModule,NgbModule],
   providers: [BookService, FaltasService],
