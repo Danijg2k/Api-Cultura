@@ -20,12 +20,15 @@ public class Startup
         var mapperConfig = new MapperConfiguration(mc =>
         {
             mc.AddProfile(new ProductoProfile());
+            mc.AddProfile(new ProveedorProfile());
+
         });
 
         IMapper mapper = mapperConfig.CreateMapper();
         services.AddSingleton(mapper);
 
         services.AddSingleton<IProductoService, ProductoService>();
+        services.AddSingleton<IProveedorService, ProveedorService>();
 
     }
 
