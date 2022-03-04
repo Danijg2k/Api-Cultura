@@ -14,6 +14,8 @@ import { CuerpoComponent } from './components/cuerpo/cuerpo.component';
 import { PieComponent } from './components/pie/pie.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ErrorComponent } from './components/error/error.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { ErrorComponent } from './components/error/error.component';
     CuerpoComponent,
     PieComponent,
     ErrorComponent,
+    AboutUsComponent,
+    SobreNosotrosComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule,HttpClientModule,NgChartsModule,NgbModule],
   providers: [BookService, FaltasService],
