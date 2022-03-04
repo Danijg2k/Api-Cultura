@@ -1,7 +1,7 @@
 <ngb-carousel *ngIf="imagenes" class="container-fluid carousel-fade" id="carouselDiv">
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
-      <img [src]="imagenes[0]" alt="Primera imagen">
+      <img [src]="imagenes[0]" alt="Primera imagen" class="img-fluid">
     </div>
     <div class="carousel-caption">
       <h3>API-Cultura</h3>
@@ -10,7 +10,7 @@
   </ng-template>
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
-      <img [src]="imagenes[1]" alt="Primera imagen">
+      <img [src]="imagenes[1]" alt="Segunda imagen" class="img-fluid">
     </div>
     <div class="carousel-caption">
       <h3>API-Cultura</h3>
