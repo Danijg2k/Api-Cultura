@@ -8,27 +8,27 @@ namespace Api.Controllers;
 public class ProvisionesController : ControllerBase
 {
     private readonly ILogger<ProvisionesController> _logger;
-    private readonly IProductoService _proveeService;
+    private readonly IProveeService _proveeService;
 
-    public ProvisionesController(ILogger<ProvisionesController> logger, IProductoService proveeService)
+    public ProvisionesController(ILogger<ProvisionesController> logger, IProveeService proveeService)
     {
         _logger = logger;
         _proveeService = proveeService;
     }
 
     [HttpGet]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
-    public ActionResult<ProductoDTO> Get()
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
+    public ActionResult<ProveeDTO> Get()
     {
         return Ok(_proveeService.GetAll());
     }
 
     [HttpGet("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProductoDTO> Get(int Id)
+    public ActionResult<ProveeDTO> Get(int Id)
     {
-        ProductoDTO result = _proveeService.GetByID(Id);
+        ProveeDTO result = _proveeService.GetByID(Id);
 
         if (result == null)
             return NotFound();
@@ -39,11 +39,11 @@ public class ProvisionesController : ControllerBase
 
 
     [HttpDelete("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProductoDTO> Delete(int Id)
+    public ActionResult<ProveeDTO> Delete(int Id)
     {
-        ProductoDTO result = _proveeService.GetByID(Id);
+        ProveeDTO result = _proveeService.GetByID(Id);
 
         if (result == null)
             return NotFound();
@@ -57,19 +57,19 @@ public class ProvisionesController : ControllerBase
 
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
-    public ActionResult<ProductoDTO> Post([FromBody] BaseProductoDTO baseProducto)
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
+    public ActionResult<ProveeDTO> Post([FromBody] BaseProveeDTO baseProvee)
     {
 
-        return Ok(_proveeService.Add(baseProducto));
+        return Ok(_proveeService.Add(baseProvee));
     }
 
     [HttpPut("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
-    public ActionResult<ProductoDTO> Put([FromBody] BaseProductoDTO baseProducto, int Id)
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
+    public ActionResult<ProveeDTO> Put([FromBody] BaseProveeDTO baseProvee, int Id)
     {
 
-        return Ok(_proveeService.Modify(baseProducto, Id));
+        return Ok(_proveeService.Modify(baseProvee, Id));
     }
 
 }

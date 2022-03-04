@@ -24,6 +24,7 @@ public class Startup
             mc.AddProfile(new TemporadaProfile());
             mc.AddProfile(new OpinionProfile());
             mc.AddProfile(new ProveeProfile());
+            mc.AddProfile(new PerteneceProfile());
 
         });
 
@@ -35,6 +36,7 @@ public class Startup
         services.AddSingleton<ITemporadaService, TemporadaService>();
         services.AddSingleton<IOpinionService, OpinionService>();
         services.AddSingleton<IProveeService, ProveeService>();
+        services.AddSingleton<IPerteneceService, PerteneceService>();
 
     }
 
