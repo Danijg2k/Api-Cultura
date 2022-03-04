@@ -18,6 +18,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
 import { TemporadasComponent } from './components/temporadas/temporadas.component';
 import { SeasonsComponent } from './pages/seasons/seasons.component';
+import { ShopComponent } from './pages/shop/shop.component';
+import { TiendaComponent } from './components/tienda/tienda.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { SeasonsComponent } from './pages/seasons/seasons.component';
     SobreNosotrosComponent,
     TemporadasComponent,
     SeasonsComponent,
+    ShopComponent,
+    TiendaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule,HttpClientModule,NgChartsModule,NgbModule],
   providers: [BookService, FaltasService],
