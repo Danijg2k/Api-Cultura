@@ -25,7 +25,7 @@ public class OpinionService : IOpinionService
         OpinionEntity opinion = _context.Opiniones.FirstOrDefault(x => x.Id == guid);
 
         if (opinion == null)
-            throw new ApplicationException($"Product with id {guid} not found");
+            throw new ApplicationException($"Opinion with id {guid} not found");
 
         _context.Opiniones.Remove(opinion);
         _context.SaveChanges();

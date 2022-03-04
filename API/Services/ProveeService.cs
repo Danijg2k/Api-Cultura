@@ -25,7 +25,7 @@ public class ProveeService : IProveeService
         ProveeEntity provision = _context.Provisiones.FirstOrDefault(x => x.Id == guid);
 
         if (provision == null)
-            throw new ApplicationException($"Provider with id {guid} not found");
+            throw new ApplicationException($"Provision with id {guid} not found");
 
         _context.Provisiones.Remove(provision);
         _context.SaveChanges();

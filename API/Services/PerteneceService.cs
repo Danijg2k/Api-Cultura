@@ -25,7 +25,7 @@ public class PerteneceService : IPerteneceService
         PerteneceEntity pertenencia = _context.Pertenencias.FirstOrDefault(x => x.Id == guid);
 
         if (pertenencia == null)
-            throw new ApplicationException($"Provider with id {guid} not found");
+            throw new ApplicationException($"Belonging with id {guid} not found");
 
         _context.Pertenencias.Remove(pertenencia);
         _context.SaveChanges();

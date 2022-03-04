@@ -7,8 +7,9 @@ public class OpinionEntity
 
     [MaxLength(100)]
     public string Nombre { get; set; }
-    [MaxLength(75)]
+    [MaxLength(150)]
     public string Apellidos { get; set; }
+    [MaxLength(150)]
     public string Email { get; set; }
     public int Telefono { get; set; }
     public int Calificacion { get; set; }

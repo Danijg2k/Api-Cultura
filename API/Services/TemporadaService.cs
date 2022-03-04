@@ -25,7 +25,7 @@ public class TemporadaService : ITemporadaService
         TemporadaEntity temporada = _context.Temporadas.FirstOrDefault(x => x.Id == guid);
 
         if (temporada == null)
-            throw new ApplicationException($"Provider with id {guid} not found");
+            throw new ApplicationException($"Season with id {guid} not found");
 
         _context.Temporadas.Remove(temporada);
         _context.SaveChanges();
