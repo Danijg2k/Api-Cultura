@@ -16,6 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ErrorComponent } from './components/error/error.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
+import { TemporadasComponent } from './components/temporadas/temporadas.component';
+import { SeasonsComponent } from './pages/seasons/seasons.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotr
     ErrorComponent,
     AboutUsComponent,
     SobreNosotrosComponent,
+    TemporadasComponent,
+    SeasonsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule,HttpClientModule,NgChartsModule,NgbModule],
   providers: [BookService, FaltasService],
