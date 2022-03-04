@@ -1,0 +1,7 @@
+use API_Cultura;
+CREATE TABLE Productos(
+Id INTEGER IDENTITY(1,1),
+Nombre VARCHAR(100),
+Img VARCHAR(200),
+CONSTRAINT Pk_Productos PRIMARY KEY (Id)
+);

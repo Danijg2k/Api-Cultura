@@ -1,7 +1,8 @@
 use API_Cultura;
-CREATE TABLE Productos(
+CREATE TABLE Temporadas(
 Id INTEGER IDENTITY(1,1),
 Nombre VARCHAR(100),
 Img VARCHAR(200),
-PRIMARY KEY (Id)
+Meses VARCHAR,
+CONSTRAINT Pk_Temporadas PRIMARY KEY (Id)
 );

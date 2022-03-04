@@ -1,8 +1,0 @@
-use API_Cultura;
-CREATE TABLE Temporadas(
-Id INTEGER IDENTITY(1,1),
-Nombre VARCHAR(100),
-Img VARCHAR(75),
-Meses VARCHAR,
-CONSTRAINT pk_Temporadas PRIMARY KEY (Id)
-);
