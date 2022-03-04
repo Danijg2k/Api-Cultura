@@ -22,12 +22,12 @@ public class ProveedorService : IProveedorService
 
     public void Delete(int guid)
     {
-        ProveedorEntity product = _context.Proveedores.FirstOrDefault(x => x.Id == guid);
+        ProveedorEntity proveedor = _context.Proveedores.FirstOrDefault(x => x.Id == guid);
 
-        if (product == null)
+        if (proveedor == null)
             throw new ApplicationException($"Provider with id {guid} not found");
 
-        _context.Proveedores.Remove(product);
+        _context.Proveedores.Remove(proveedor);
         _context.SaveChanges();
     }
 
@@ -41,9 +41,9 @@ public class ProveedorService : IProveedorService
         return _mapper.Map<ProveedorDTO>(_context.Proveedores.FirstOrDefault(x => x.Id == guid));
     }
 
-    public ProveedorDTO Modify(BaseProveedorDTO product, int guid)
+    public ProveedorDTO Modify(BaseProveedorDTO proveedor, int guid)
     {
-        var _mappedProveedor = _mapper.Map<ProveedorEntity>(product);
+        var _mappedProveedor = _mapper.Map<ProveedorEntity>(proveedor);
         _mappedProveedor.Id = guid;
 
         ProveedorEntity modifiedProveedor = _context.Proveedores.FirstOrDefault(x => x.Id == guid);

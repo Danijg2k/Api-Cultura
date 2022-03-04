@@ -8,19 +8,19 @@ namespace Api.Controllers;
 public class ProveedoresController : ControllerBase
 {
     private readonly ILogger<ProveedoresController> _logger;
-    private readonly IProveedorService _productoService;
+    private readonly IProveedorService _proveedorService;
 
-    public ProveedoresController(ILogger<ProveedoresController> logger, IProveedorService productoService)
+    public ProveedoresController(ILogger<ProveedoresController> logger, IProveedorService proveedorService)
     {
         _logger = logger;
-        _productoService = productoService;
+        _proveedorService = proveedorService;
     }
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
     public ActionResult<ProveedorDTO> Get()
     {
-        return Ok(_productoService.GetAll());
+        return Ok(_proveedorService.GetAll());
     }
 
     [HttpGet("{Id}")]
@@ -28,7 +28,7 @@ public class ProveedoresController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult<ProveedorDTO> Get(int Id)
     {
-        ProveedorDTO result = _productoService.GetByID(Id);
+        ProveedorDTO result = _proveedorService.GetByID(Id);
 
         if (result == null)
             return NotFound();
@@ -43,12 +43,12 @@ public class ProveedoresController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult<ProveedorDTO> Delete(int Id)
     {
-        ProveedorDTO result = _productoService.GetByID(Id);
+        ProveedorDTO result = _proveedorService.GetByID(Id);
 
         if (result == null)
             return NotFound();
 
-        _productoService.Delete(Id);
+        _proveedorService.Delete(Id);
 
         return Ok(result);
 
@@ -61,7 +61,7 @@ public class ProveedoresController : ControllerBase
     public ActionResult<ProveedorDTO> Post([FromBody] BaseProveedorDTO baseProveedor)
     {
 
-        return Ok(_productoService.Add(baseProveedor));
+        return Ok(_proveedorService.Add(baseProveedor));
     }
 
     [HttpPut("{Id}")]
@@ -69,7 +69,7 @@ public class ProveedoresController : ControllerBase
     public ActionResult<ProveedorDTO> Put([FromBody] BaseProveedorDTO baseProveedor, int Id)
     {
 
-        return Ok(_productoService.Modify(baseProveedor, Id));
+        return Ok(_proveedorService.Modify(baseProveedor, Id));
     }
 
 }

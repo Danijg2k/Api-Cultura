@@ -21,7 +21,7 @@ public class Startup
         {
             mc.AddProfile(new ProductoProfile());
             mc.AddProfile(new ProveedorProfile());
-
+            mc.AddProfile(new TemporadaProfile());
         });
 
         IMapper mapper = mapperConfig.CreateMapper();
@@ -29,6 +29,7 @@ public class Startup
 
         services.AddSingleton<IProductoService, ProductoService>();
         services.AddSingleton<IProveedorService, ProveedorService>();
+        services.AddSingleton<ITemporadaService, TemporadaService>();
 
     }
 
