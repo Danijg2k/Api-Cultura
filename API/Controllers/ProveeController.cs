@@ -23,6 +23,15 @@ public class ProvisionesController : ControllerBase
         return Ok(_proveeService.GetAll());
     }
 
+
+    [HttpGet("product{IdProd}")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
+    public ActionResult<ProveeDTO> GetOfProduct(int IdProd)
+    {
+        return Ok(_proveeService.GetAllOfProduct(IdProd));
+    }
+
+
     [HttpGet("{Id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

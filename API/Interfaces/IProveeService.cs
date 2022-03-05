@@ -7,6 +7,9 @@ public interface IProveeService
 
     public ProveeDTO GetByID(int guid);
 
+    // Usado para obtener las del producto actual de la tienda
+    public IEnumerable<ProveeDTO> GetAllOfProduct(int guid);
+
     public ProveeDTO Add(BaseProveeDTO guid);
 
     public void Delete(int guid);

@@ -36,6 +36,12 @@ public class ProveeService : IProveeService
         return _mapper.Map<IEnumerable<ProveeDTO>>(_context.Provisiones.Select(x => x));
     }
 
+    // Seguramente no va a ser utilizado, introducido para realizar pruebas.
+    public IEnumerable<ProveeDTO> GetAllOfProduct(int guid)
+    {
+        return _mapper.Map<IEnumerable<ProveeDTO>>(_context.Provisiones.Where(x => x.IdProducto == guid));
+    }
+
     public ProveeDTO GetByID(int guid)
     {
         return _mapper.Map<ProveeDTO>(_context.Provisiones.FirstOrDefault(x => x.Id == guid));

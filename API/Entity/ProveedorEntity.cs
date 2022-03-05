@@ -9,7 +9,8 @@ public class ProveedorEntity
     public string Nombre { get; set; }
     [MaxLength(75)]
     public string Poblacion { get; set; }
-    public int Telefono { get; set; }
+    [MaxLength(30)]
+    public string Telefono { get; set; }
     public int Id { get; set; }
 
 }

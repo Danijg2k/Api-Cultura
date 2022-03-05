@@ -5,11 +5,14 @@ public class ProveedorService : IProveedorService
 {
     private readonly ProveedorContext _context;
     private readonly IMapper _mapper;
+    // Introducido
+    private readonly ProveeContext _context1;
 
-    public ProveedorService(ProveedorContext context, IMapper mapper)
+    public ProveedorService(ProveedorContext context, IMapper mapper, ProveeContext context1)
     {
         _context = context;
         _mapper = mapper;
+        _context1 = context1;
     }
 
     public ProveedorDTO Add(BaseProveedorDTO baseProveedor)
@@ -35,6 +38,16 @@ public class ProveedorService : IProveedorService
     {
         return _mapper.Map<IEnumerable<ProveedorDTO>>(_context.Proveedores.Select(x => x));
     }
+
+
+    // Método que vamos a utilizar para mostrar proveedores del producto actual en nuestra WEB.
+    //_context.Provisiones.Where(x => x.IdProducto == guid)
+    // Pasar el array de ProveeDTO[] a un array que solo tenga las id
+    // public IEnumerable<ProveedorDTO> GetAllOfProduct(ProveeDTO[] provisiones)
+    // {
+    //     return _mapper.Map<IEnumerable<ProveedorDTO>>(_context.Proveedores.Select(x => provisiones.Contains));
+    // }
+
 
     public ProveedorDTO GetByID(int guid)
     {

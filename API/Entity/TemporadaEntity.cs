@@ -9,6 +9,7 @@ public class TemporadaEntity
     public string Nombre { get; set; }
     [MaxLength(200)]
     public string Img { get; set; }
+    [MaxLength(50)]
     public string Meses { get; set; }
     public int Id { get; set; }
 
