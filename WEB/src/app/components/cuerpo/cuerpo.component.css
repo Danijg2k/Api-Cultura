@@ -20,7 +20,7 @@ ngb-carousel .sr-only{
 }
 
 /* Styles for carousel indicators (if width and height not specified won't show) */
-.carousel-indicators li {
+/* .carousel-indicators li {
   width: 50px;
   height: 3px;
   background-color:grey;
@@ -29,10 +29,16 @@ ngb-carousel .sr-only{
 
 .carousel-indicators .active {
   background-color: #ca7397;
-}
+} */
 
 img{
   width: 100%;
+}
+
+h4{
+  text-align: center;
+  padding-left: 15vw;
+  padding-right: 15vw;
 }
 
 @media only screen and (max-width: 600px) {

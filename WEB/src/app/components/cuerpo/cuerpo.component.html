@@ -6,6 +6,7 @@
     <div class="carousel-caption">
       <h3>API-Cultura</h3>
       <p>De la huerta a tu plato</p>
+      <button type="button" class="btn btn-light">Ir a la tienda</button>
     </div>
   </ng-template>
   <ng-template ngbSlide>
@@ -15,6 +16,22 @@
     <div class="carousel-caption">
       <h3>API-Cultura</h3>
       <p>De la huerta a tu plato</p>
+      <button type="button" class="btn btn-light">Ir a la tienda</button>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<h4>Bienvenido a API-Cultura. Aquí encontrarás los mejores productos del campo al mejor precio.</h4>
+
+<ngb-carousel *ngIf="imagenes" class="container-fluid carousel-fade" id="carouselDiv">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="imagenes[2]" alt="Tercera imagen" class="img-fluid">
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="imagenes[3]" alt="Cuarta imagen" class="img-fluid">
     </div>
   </ng-template>
 </ngb-carousel>

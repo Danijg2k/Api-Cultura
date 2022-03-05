@@ -11,7 +11,7 @@ export class CuerpoComponent implements OnInit {
   imagenes:Array<String>;
 
   constructor() {
-    this.imagenes = ['carousel1', 'carousel2'].map((n) => `/assets/img/${n}.jpg`);
+    this.imagenes = ['carousel1', 'carousel2', 'carousel3', 'carousel4'].map((n) => `/assets/img/${n}.jpg`);
   }
 
   ngOnInit(): void {
