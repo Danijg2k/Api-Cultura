@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.JsonPatch;
 
 public class ProveeService : IProveeService
 {
-    private readonly ProveeContext _context;
+    private readonly TiendaContext _context;
     private readonly IMapper _mapper;
 
-    public ProveeService(ProveeContext context, IMapper mapper)
+    public ProveeService(TiendaContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

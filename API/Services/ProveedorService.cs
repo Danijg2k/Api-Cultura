@@ -3,16 +3,13 @@ using Microsoft.AspNetCore.JsonPatch;
 
 public class ProveedorService : IProveedorService
 {
-    private readonly ProveedorContext _context;
+    private readonly TiendaContext _context;
     private readonly IMapper _mapper;
-    // Introducido
-    private readonly ProveeContext _context1;
 
-    public ProveedorService(ProveedorContext context, IMapper mapper, ProveeContext context1)
+    public ProveedorService(TiendaContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
-        _context1 = context1;
     }
 
     public ProveedorDTO Add(BaseProveedorDTO baseProveedor)

@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.JsonPatch;
 
 public class PerteneceService : IPerteneceService
 {
-    private readonly PerteneceContext _context;
+    private readonly TiendaContext _context;
     private readonly IMapper _mapper;
 
-    public PerteneceService(PerteneceContext context, IMapper mapper)
+    public PerteneceService(TiendaContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

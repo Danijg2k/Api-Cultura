@@ -12,8 +12,10 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddSingleton<ProductoContext>(_ =>
-            new ProductoContext(Configuration.GetConnectionString("DefaultConnection")));
+
+        // Hack con Transient para usar solo un contexto
+        services.AddTransient<TiendaContext>(_ =>
+            new TiendaContext(Configuration.GetConnectionString("DefaultConnection")));
 
 
 

@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.JsonPatch;
 
 public class OpinionService : IOpinionService
 {
-    private readonly OpinionContext _context;
+    private readonly TiendaContext _context;
     private readonly IMapper _mapper;
 
-    public OpinionService(OpinionContext context, IMapper mapper)
+    public OpinionService(TiendaContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;

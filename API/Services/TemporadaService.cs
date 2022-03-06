@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.JsonPatch;
 
 public class TemporadaService : ITemporadaService
 {
-    private readonly TemporadaContext _context;
+    private readonly TiendaContext _context;
     private readonly IMapper _mapper;
 
-    public TemporadaService(TemporadaContext context, IMapper mapper)
+    public TemporadaService(TiendaContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
