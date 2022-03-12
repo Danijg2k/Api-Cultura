@@ -6,5 +6,5 @@ public class ProveeDTO : BaseProveeDTO
     }
 
 
-    public int Id { get; set; }
+    // public int Id { get; set; }
 }

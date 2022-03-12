@@ -23,6 +23,7 @@ public class ProveedoresController : ControllerBase
         return Ok(_proveedorService.GetAll());
     }
 
+
     [HttpGet("{Id}")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

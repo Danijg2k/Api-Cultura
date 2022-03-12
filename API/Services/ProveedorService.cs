@@ -36,14 +36,6 @@ public class ProveedorService : IProveedorService
         return _mapper.Map<IEnumerable<ProveedorDTO>>(_context.Proveedores.Select(x => x));
     }
 
-
-    // Método que vamos a utilizar para mostrar proveedores del producto actual en nuestra WEB.
-    public IEnumerable<ProveedorDTO> GetAllOfProduct(int[] idProveedores)
-    {
-        return _mapper.Map<IEnumerable<ProveedorDTO>>(_context.Proveedores.Select(x => idProveedores.Contains(x.Id)));
-    }
-
-
     public ProveedorDTO GetByID(int guid)
     {
         return _mapper.Map<ProveedorDTO>(_context.Proveedores.FirstOrDefault(x => x.Id == guid));

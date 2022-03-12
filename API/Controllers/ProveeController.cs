@@ -16,69 +16,13 @@ public class ProvisionesController : ControllerBase
         _proveeService = proveeService;
     }
 
-    [HttpGet]
+
+    // Usado para mostrar info de ambas tablas (producto y proveedor)
+    [HttpGet("{IdProducto}/detail")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    public ActionResult<ProveeDTO> Get()
+    public ActionResult<ProveeDTO> GetProveeProductoActual(int IdProducto)
     {
-        return Ok(_proveeService.GetAll());
-    }
-
-
-    [HttpGet("product{IdProd}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    public ActionResult<ProveeDTO> GetOfProduct(int IdProd)
-    {
-        return Ok(_proveeService.GetAllOfProduct(IdProd));
-    }
-
-
-    [HttpGet("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProveeDTO> Get(int Id)
-    {
-        ProveeDTO result = _proveeService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        return Ok(result);
-
-    }
-
-
-    [HttpDelete("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProveeDTO> Delete(int Id)
-    {
-        ProveeDTO result = _proveeService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        _proveeService.Delete(Id);
-
-        return Ok(result);
-
-    }
-
-
-
-    [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    public ActionResult<ProveeDTO> Post([FromBody] BaseProveeDTO baseProvee)
-    {
-
-        return Ok(_proveeService.Add(baseProvee));
-    }
-
-    [HttpPut("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    public ActionResult<ProveeDTO> Put([FromBody] BaseProveeDTO baseProvee, int Id)
-    {
-
-        return Ok(_proveeService.Modify(baseProvee, Id));
+        return Ok(_proveeService.GetProveeDetail(IdProducto));
     }
 
 }
