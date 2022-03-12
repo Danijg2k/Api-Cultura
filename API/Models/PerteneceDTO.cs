@@ -6,5 +6,5 @@ public class PerteneceDTO : BasePerteneceDTO
     }
 
 
-    public int Id { get; set; }
+    // public int Id { get; set; }
 }

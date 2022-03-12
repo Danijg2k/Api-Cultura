@@ -16,60 +16,12 @@ public class PertenenciasController : ControllerBase
         _perteneceService = perteneceService;
     }
 
-    [HttpGet]
+
+    // Usado para mostrar info de ambas tablas (producto y temporada) una vez dentro de las temporadas
+    [HttpGet("{IdTemporada}/detail")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    public ActionResult<PerteneceDTO> Get()
+    public ActionResult<PerteneceDTO> GetPerteneceTemporadaActual(int IdTemporada)
     {
-        return Ok(_perteneceService.GetAll());
+        return Ok(_perteneceService.GetPerteneceDetail(IdTemporada));
     }
-
-    [HttpGet("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<PerteneceDTO> Get(int Id)
-    {
-        PerteneceDTO result = _perteneceService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        return Ok(result);
-
-    }
-
-
-    [HttpDelete("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<PerteneceDTO> Delete(int Id)
-    {
-        PerteneceDTO result = _perteneceService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        _perteneceService.Delete(Id);
-
-        return Ok(result);
-
-    }
-
-
-
-    [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    public ActionResult<PerteneceDTO> Post([FromBody] BasePerteneceDTO basePertenece)
-    {
-
-        return Ok(_perteneceService.Add(basePertenece));
-    }
-
-    [HttpPut("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    public ActionResult<PerteneceDTO> Put([FromBody] BasePerteneceDTO basePertenece, int Id)
-    {
-
-        return Ok(_perteneceService.Modify(basePertenece, Id));
-    }
-
 }

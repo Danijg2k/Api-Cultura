@@ -12,6 +12,20 @@ public class ProveeService : IProveeService
         _mapper = mapper;
     }
 
+    // Usado para poder mostrar cada producto junto a su precio, ya que se encuentran en tablas diferentes (producto, provee)
+    public IEnumerable<ProveeDTO> GetProveeDetail()
+    {
+        return (from provee in _context.Provisiones
+                join producto in _context.Productos on provee.IdProducto equals producto.Id
+                select new ProveeDTO
+                {
+                    IdProducto = producto.Id,
+                    Precio = provee.Precio,
+                    NombreProducto = producto.Nombre,
+                    Img = producto.Img,
+                });
+    }
+
 
     // Usado para mostrar info de ambas tablas (producto y proveedor)
     public IEnumerable<ProveeDTO> GetProveeDetail(int guid)
