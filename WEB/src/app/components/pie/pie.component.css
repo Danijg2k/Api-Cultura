@@ -1,3 +1,14 @@
-.copyright{
-  text-align: center;
+.footer{
+  background-color:#2a6049;
+  padding: 2em;
+  color: white;
+}
+
+
+.icon{
+  width: 60px;
+}
+
+input{
+  background-color: transparent;
 }
