@@ -1,3 +1,7 @@
+/// <summary>
+/// DTO of 'Provee'
+/// </summary>
+
 public class ProveeDTO : BaseProveeDTO
 {
     public ProveeDTO()

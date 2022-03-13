@@ -1,6 +1,10 @@
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 
+/// <summary>
+/// 'Pertenece' service
+/// </summary>
+
 public class PerteneceService : IPerteneceService
 {
     private readonly TiendaContext _context;

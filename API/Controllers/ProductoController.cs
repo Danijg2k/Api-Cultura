@@ -10,12 +10,23 @@ public class ProductosController : ControllerBase
     private readonly ILogger<ProductosController> _logger;
     private readonly IProductoService _productoService;
 
+
+    /// <summary>
+    /// It creates a productoController
+    /// </summary>
+    /// <param name="logger">used for logging</param>
+    /// <param name="productoService">used for dealing with the product data</param>
     public ProductosController(ILogger<ProductosController> logger, IProductoService productoService)
     {
         _logger = logger;
         _productoService = productoService;
     }
 
+
+    /// <summary>
+    /// Returns all the Producto
+    /// </summary>
+    /// <returns>Returns a list of <see cref="ProductoDTO"/></returns>
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
     public ActionResult<ProductoDTO> Get()
@@ -23,53 +34,53 @@ public class ProductosController : ControllerBase
         return Ok(_productoService.GetAll());
     }
 
-    [HttpGet("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProductoDTO> Get(int Id)
-    {
-        ProductoDTO result = _productoService.GetByID(Id);
+    // [HttpGet("{Id}")]
+    // [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
+    // [ProducesResponseType(StatusCodes.Status404NotFound)]
+    // public ActionResult<ProductoDTO> Get(int Id)
+    // {
+    //     ProductoDTO result = _productoService.GetByID(Id);
 
-        if (result == null)
-            return NotFound();
+    //     if (result == null)
+    //         return NotFound();
 
-        return Ok(result);
+    //     return Ok(result);
 
-    }
-
-
-    [HttpDelete("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProductoDTO> Delete(int Id)
-    {
-        ProductoDTO result = _productoService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        _productoService.Delete(Id);
-
-        return Ok(result);
-
-    }
+    // }
 
 
+    // [HttpDelete("{Id}")]
+    // [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
+    // [ProducesResponseType(StatusCodes.Status404NotFound)]
+    // public ActionResult<ProductoDTO> Delete(int Id)
+    // {
+    //     ProductoDTO result = _productoService.GetByID(Id);
 
-    [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
-    public ActionResult<ProductoDTO> Post([FromBody] BaseProductoDTO baseProducto)
-    {
+    //     if (result == null)
+    //         return NotFound();
 
-        return Ok(_productoService.Add(baseProducto));
-    }
+    //     _productoService.Delete(Id);
 
-    [HttpPut("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
-    public ActionResult<ProductoDTO> Put([FromBody] BaseProductoDTO baseProducto, int Id)
-    {
+    //     return Ok(result);
 
-        return Ok(_productoService.Modify(baseProducto, Id));
-    }
+    // }
+
+
+
+    // [HttpPost]
+    // [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
+    // public ActionResult<ProductoDTO> Post([FromBody] BaseProductoDTO baseProducto)
+    // {
+
+    //     return Ok(_productoService.Add(baseProducto));
+    // }
+
+    // [HttpPut("{Id}")]
+    // [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductoDTO))]
+    // public ActionResult<ProductoDTO> Put([FromBody] BaseProductoDTO baseProducto, int Id)
+    // {
+
+    //     return Ok(_productoService.Modify(baseProducto, Id));
+    // }
 
 }

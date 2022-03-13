@@ -1,5 +1,9 @@
 using System.Data.Entity;
 
+/// <summary>
+/// DbContext used 
+/// </summary>
+
 public class TiendaContext : DbContext
 {
     public TiendaContext(string connectionString) : base(connectionString)

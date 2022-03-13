@@ -1,3 +1,7 @@
+/// <summary>
+/// Base DTO of 'Provee', used in creation
+/// </summary>
+
 public class BaseProveeDTO
 {
     // Para relacionar con las dos tablas que une

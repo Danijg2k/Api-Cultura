@@ -1,3 +1,7 @@
+/// <summary>
+/// DTO of 'Producto'
+/// </summary>
+
 public class ProductoDTO : BaseProductoDTO
 {
     public ProductoDTO()

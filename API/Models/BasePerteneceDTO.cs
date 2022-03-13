@@ -1,3 +1,7 @@
+/// <summary>
+/// Base DTO of 'Pertenece', used in creation
+/// </summary>
+
 public class BasePerteneceDTO
 {
     // Para relacionar con las dos tablas que une

@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.JsonPatch;
 
+/// <summary>
+/// Interface used for 'Provee' service
+/// </summary>
+
 public interface IProveeService
 {
     // Usado para poder mostrar cada producto junto a su precio, ya que se encuentran en tablas diferentes (producto, provee)

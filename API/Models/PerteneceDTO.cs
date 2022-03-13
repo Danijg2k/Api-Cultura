@@ -1,3 +1,7 @@
+/// <summary>
+/// DTO of 'Pertenece'
+/// </summary>
+
 public class PerteneceDTO : BasePerteneceDTO
 {
     public PerteneceDTO()

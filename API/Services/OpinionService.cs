@@ -1,6 +1,10 @@
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 
+/// <summary>
+/// 'Opinion' service
+/// </summary>
+
 public class OpinionService : IOpinionService
 {
     private readonly TiendaContext _context;
@@ -20,42 +24,42 @@ public class OpinionService : IOpinionService
         return _mapper.Map<OpinionDTO>(entityAdded);
     }
 
-    public void Delete(int guid)
-    {
-        OpinionEntity opinion = _context.Opiniones.FirstOrDefault(x => x.Id == guid);
+    // public void Delete(int guid)
+    // {
+    //     OpinionEntity opinion = _context.Opiniones.FirstOrDefault(x => x.Id == guid);
 
-        if (opinion == null)
-            throw new ApplicationException($"Opinion with id {guid} not found");
+    //     if (opinion == null)
+    //         throw new ApplicationException($"Opinion with id {guid} not found");
 
-        _context.Opiniones.Remove(opinion);
-        _context.SaveChanges();
-    }
+    //     _context.Opiniones.Remove(opinion);
+    //     _context.SaveChanges();
+    // }
 
-    public IEnumerable<OpinionDTO> GetAll()
-    {
-        return _mapper.Map<IEnumerable<OpinionDTO>>(_context.Opiniones.Select(x => x));
-    }
+    // public IEnumerable<OpinionDTO> GetAll()
+    // {
+    //     return _mapper.Map<IEnumerable<OpinionDTO>>(_context.Opiniones.Select(x => x));
+    // }
 
-    public OpinionDTO GetByID(int guid)
-    {
-        return _mapper.Map<OpinionDTO>(_context.Opiniones.FirstOrDefault(x => x.Id == guid));
-    }
+    // public OpinionDTO GetByID(int guid)
+    // {
+    //     return _mapper.Map<OpinionDTO>(_context.Opiniones.FirstOrDefault(x => x.Id == guid));
+    // }
 
-    public OpinionDTO Modify(BaseOpinionDTO opinion, int guid)
-    {
-        var _mappedOpinion = _mapper.Map<OpinionEntity>(opinion);
-        _mappedOpinion.Id = guid;
+    // public OpinionDTO Modify(BaseOpinionDTO opinion, int guid)
+    // {
+    //     var _mappedOpinion = _mapper.Map<OpinionEntity>(opinion);
+    //     _mappedOpinion.Id = guid;
 
-        OpinionEntity modifiedOpinion = _context.Opiniones.FirstOrDefault(x => x.Id == guid);
+    //     OpinionEntity modifiedOpinion = _context.Opiniones.FirstOrDefault(x => x.Id == guid);
 
-        if (modifiedOpinion == null)
-            return null;
+    //     if (modifiedOpinion == null)
+    //         return null;
 
-        _context.Entry(modifiedOpinion).CurrentValues.SetValues(_mappedOpinion);
+    //     _context.Entry(modifiedOpinion).CurrentValues.SetValues(_mappedOpinion);
 
-        _context.SaveChanges();
+    //     _context.SaveChanges();
 
-        return _mapper.Map<OpinionDTO>(_mappedOpinion);
-    }
+    //     return _mapper.Map<OpinionDTO>(_mappedOpinion);
+    // }
 
 }

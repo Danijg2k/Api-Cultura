@@ -1,5 +1,9 @@
 using AutoMapper;
 
+/// <summary>
+/// Mapper for 'Provee' DTO - Entity
+/// </summary>
+
 public class ProveeProfile : Profile
 {
     public ProveeProfile()
