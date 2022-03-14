@@ -21,12 +21,23 @@ public class ProveeService : IProveeService
     {
         return (from provee in _context.Provisiones
                 join producto in _context.Productos on provee.IdProducto equals producto.Id
-                select new ProveeDTO
+                select new
                 {
                     IdProducto = producto.Id,
                     Precio = provee.Precio,
                     NombreProducto = producto.Nombre,
                     Img = producto.Img,
+                }).GroupBy(x => new
+                {
+                    x.IdProducto,
+                    x.NombreProducto,
+                    x.Img
+                }).Select(x => new ProveeDTO
+                {
+                    IdProducto = x.Key.IdProducto,
+                    Precio = x.Min(z => z.Precio),
+                    NombreProducto = x.Key.NombreProducto,
+                    Img = x.Key.Img,
                 });
     }
 
