@@ -1,7 +1,7 @@
 
 <div class="container" >
-  <p>{{ nombreProducto }}</p>
-  <img [src]="imgProducto" class="card-img-top rounded-circle" alt="...">
+  <h2 class="nombreProducto">{{ nombreProducto }}</h2>
+  <img [src]="imgProducto" class="card-img-top imagen shadow">
   <p>Vendedores disponibles</p>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-3" >
     <ng-container *ngFor="let p of provee">
@@ -19,4 +19,3 @@
     </ng-container>
   </div>
 </div>
-
