@@ -1,3 +1,13 @@
-<div>
-  <h2>Aquí hay que meter los productos</h2>
+<div class="container" >
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-3" >
+    <ng-container *ngFor="let p of provee">
+      <div class="card" style="width: 18rem;">
+        <img [src]="p.img" class="card-img-top rounded-circle" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{ p.nombreProducto }}</p>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-dark btn-blue" [routerLink]="'/productos/'+p.idProducto"> Desde {{ p.precio }} €/kg</button>
+      </div>
+    </ng-container>
+  </div>
 </div>
