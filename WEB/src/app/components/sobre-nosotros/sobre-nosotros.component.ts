@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SobreNosotrosComponent implements OnInit {
 
-  constructor() { }
+  currentRate: number;
 
+  constructor() {
+    this.currentRate = 5;
+  }
   ngOnInit(): void {
   }
-
 }

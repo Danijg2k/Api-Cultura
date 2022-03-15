@@ -12,7 +12,6 @@ import { CuerpoComponent } from './components/cuerpo/cuerpo.component';
 import { PieComponent } from './components/pie/pie.component';
 import { ErrorComponent } from './components/error/error.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
 import { TemporadasComponent } from './components/temporadas/temporadas.component';
 import { SeasonsComponent } from './pages/seasons/seasons.component';
 import { ShopComponent } from './pages/shop/shop.component';
@@ -25,6 +24,7 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { TemporadaComponent } from './components/temporada/temporada.component';
 import { ProductComponent } from './pages/product/product.component';
 import { SeasonComponent } from './pages/season/season.component';
+import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
 
 @NgModule({
   declarations: [

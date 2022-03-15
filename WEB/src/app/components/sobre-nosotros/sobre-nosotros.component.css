@@ -7,10 +7,6 @@ p{
   padding-right: 22vw;
 }
 
-form{
-  text-align: center;
-}
-
-input{
+input, textarea{
   margin: 5px;
 }

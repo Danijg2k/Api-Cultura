@@ -7,18 +7,43 @@
   <p>API-Cultura existe por y para nuestros usuarios. Nuestro objetivo es proporcionar información de contacto para que cualquier persona sea capaz de encontrar los productos naturales que esté buscando, con el mejor precio, gran facilidad y una interfaz sencilla e intuitiva.</p>
 </div>
 <br>
-<div>
-  <form>
-    <legend>Danos tu opinión</legend>
-      <input type="text" id="nombre" placeholder="Nombre" required>
-      <input type="text" id="apellidos" placeholder="Apellidos">
-      <br>
-      <input type="mail" id="email" placeholder="Email" required>
-      <input type="tel" id="telefono" placeholder="Teléfono">
-      <br>
-      <textarea name="comentarios" rows="5" cols="50" placeholder="Escribe tus comentarios aquí" required></textarea>
-      <div class="col-12">
-      <button class="btn btn-primary" type="submit">Enviar comentarios</button>
+<div class="container">
+  <form class="form-floating">
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="text" id="nombre" placeholder="Nombre" required class="form-control">
+          <label for="nombre">Nombre</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="text" id="apellidos" placeholder="Apellidos" class="form-control">
+          <label for="apellidos">Apellidos</label>
+        </div>
+      </div>
     </div>
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="mail" id="email" placeholder="Email" required class="form-control">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="tel" id="telefono" placeholder="Teléfono" class="form-control">
+          <label for="telefono">Teléfono</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-floating">
+      <ngb-rating [(rate)]="currentRate"></ngb-rating>
+    </div>
+    <div class="form-floating">
+      <textarea class="form-control text-area-margin" placeholder="Leave a comment here" id="comentario" style="height: 100px"></textarea>
+      <label for="comentario">Comentario</label>
+    </div>
+    <button class="btn btn-primary" type="submit">Enviar comentarios</button>
   </form>
 </div>
