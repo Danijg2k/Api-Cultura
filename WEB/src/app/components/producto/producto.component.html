@@ -1,29 +1,28 @@
-<div class="container" >
+<div class="container div_general">
   <h2 class="nombreProducto">{{ nombreProducto }}</h2>
-  <p>Vendedores disponibles</p>
-  <div class="row  d-flex justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-3" >
-    <div class="img">
-      <img [src]="imgProducto" class="card-img-top imagen shadow">
-    </div>
 
-    <div class="row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-md-2 g-2 vendedores">
+  <div class="row">
+    <div class="col-sm-5 col-md-6 text-center div_img">
+      <img [src]="imgProducto" class="card-img-top img-fluid imagen">
+    </div>
+    <div class="col-sm-5 col-md-3 div_proveedores">
+      <h3>Vendedores disponibles</h3>
       <ng-container *ngFor="let p of provee">
-        <div class="card border-0" style="width: 20rem;">
-          <div class="card-body">
-            <p class="card-text">{{ p.nombreProveedor }}</p>
-            <p *ngIf="nombreProducto=='Huevos';else elseBlock">
-              Precio: {{ p.precio }}€/cartón
-            </p>
-            <ng-template #elseBlock>Precio: {{ p.precio }}€/kg</ng-template>
-            <p class="card-text">Población: {{ p.poblacion }}</p>
-            <p class="card-text">Tlfn: {{ p.telefono }}</p>
-          </div>
+        <div class="card border-0 proveedor mx-auto" style="width: 20rem;">
+          <p class="card-text">{{ p.nombreProveedor }}</p>
+          <p *ngIf="nombreProducto=='Huevos';else elseBlock">
+            Precio: {{ p.precio }}€/cartón
+          </p>
+          <ng-template #elseBlock><p>Precio: {{ p.precio }}€/kg</p></ng-template>
+          <p class="card-text">Población: {{ p.poblacion }}</p>
+          <p class="card-text">Tlfn: {{ p.telefono }}</p>
+          <hr>
         </div>
       </ng-container>
     </div>
   </div>
-  <br>
+
   <div class="mapa">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.0944218816467!2d-1.9591436331935035!3d42.31918479432231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe2ae1aa1bfa845b0!2zNDLCsDE5JzA5LjEiTiAxwrA1NycyNy40Ilc!5e0!3m2!1ses!2ses!4v1647392507989!5m2!1ses!2ses" width="650" height="300"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.0944218816467!2d-1.9591436331935035!3d42.31918479432231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe2ae1aa1bfa845b0!2zNDLCsDE5JzA5LjEiTiAxwrA1NycyNy40Ilc!5e0!3m2!1ses!2ses!4v1647392507989!5m2!1ses!2ses"></iframe>
   </div>
 </div>
