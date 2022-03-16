@@ -25,6 +25,7 @@ import { TemporadaComponent } from './components/temporada/temporada.component';
 import { ProductComponent } from './pages/product/product.component';
 import { SeasonComponent } from './pages/season/season.component';
 import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotros.component';
+import { OpinionesService } from './services/opiniones.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { SobreNosotrosComponent } from './components/sobre-nosotros/sobre-nosotr
     NgChartsModule,
     NgbModule,
   ],
-  providers: [TemporadaService, ProveeService, PerteneceService],
+  providers: [TemporadaService, ProveeService, PerteneceService, OpinionesService],
   exports: [CabeceraComponent],
   bootstrap: [AppComponent],
 })
