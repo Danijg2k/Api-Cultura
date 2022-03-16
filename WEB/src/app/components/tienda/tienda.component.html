@@ -1,0 +1,14 @@
+<div class="container div_general">
+  <h2>Tienda</h2>
+  <div class="row d-flex justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-3 div_img">
+    <ng-container *ngFor="let p of provee">
+      <div class="card border-0">
+        <img [src]="p.img" class="card-img-top rounded-circle" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{ p.nombreProducto }}</p>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-dark btn-blue" [routerLink]="'/productos/'+p.idProducto"> Desde {{ p.precio }} €/kg</button>
+      </div>
+    </ng-container>
+  </div>
+</div>

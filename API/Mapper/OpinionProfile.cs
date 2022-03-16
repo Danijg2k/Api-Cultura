@@ -1,5 +1,9 @@
 using AutoMapper;
 
+/// <summary>
+/// Mapper for 'Opinion' DTO - Entity
+/// </summary>
+
 public class OpinionProfile : Profile
 {
     public OpinionProfile()

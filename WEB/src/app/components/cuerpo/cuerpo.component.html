@@ -1,0 +1,37 @@
+<ngb-carousel *ngIf="imagenes" class="container-fluid carousel-fade" id="carouselDiv">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="imagenes[0]" alt="Primera imagen" class="img-fluid">
+    </div>
+    <div class="carousel-caption">
+      <h3>API-Cultura</h3>
+      <p>De la huerta a tu plato</p>
+      <a href="/tienda"><button type="button" class="btn btn-light">Ir a la tienda</button></a>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="imagenes[1]" alt="Segunda imagen" class="img-fluid">
+    </div>
+    <div class="carousel-caption">
+      <h3>API-Cultura</h3>
+      <p>De la huerta a tu plato</p>
+      <a href="/tienda"><button type="button" class="btn btn-light">Ir a la tienda</button></a>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<h4>Bienvenido a API-Cultura. Aquí encontrarás los mejores productos del campo al mejor precio.</h4>
+
+<ngb-carousel *ngIf="imagenes" class="container-fluid carousel-fade" id="carouselDiv">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="imagenes[2]" alt="Tercera imagen" class="img-fluid">
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="imagenes[3]" alt="Cuarta imagen" class="img-fluid">
+    </div>
+  </ng-template>
+</ngb-carousel>

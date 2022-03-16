@@ -1,0 +1,27 @@
+div{
+  text-align: center;
+}
+
+.card{
+  width: 18rem;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.div_general{
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.div_img{
+  margin-top: 2em;
+}
+
+.div_meses{
+  width: fit-content;
+  text-align: left;
+}
+
+.meses{
+  display: inline;
+}

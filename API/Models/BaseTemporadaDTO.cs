@@ -1,3 +1,7 @@
+/// <summary>
+/// Base DTO of 'Temporada', used in creation
+/// </summary>
+
 public class BaseTemporadaDTO
 {
     public string Nombre { get; set; }

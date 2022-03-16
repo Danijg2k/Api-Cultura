@@ -1,3 +1,7 @@
+/// <summary>
+/// DTO of 'Proveedor'
+/// </summary>
+
 public class ProveedorDTO : BaseProveedorDTO
 {
     public ProveedorDTO()

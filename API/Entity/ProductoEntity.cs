@@ -1,6 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+/// <summary>
+/// 'Producto' entity
+/// </summary>
+
 [Table("Productos")]
 public class ProductoEntity
 {

@@ -1,18 +1,16 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.JsonPatch;
 
+/// <summary>
+/// Interface used for 'Provee' service
+/// </summary>
+
 public interface IProveeService
 {
-    public IEnumerable<ProveeDTO> GetAll();
+    // Usado para poder mostrar cada producto junto a su precio, ya que se encuentran en tablas diferentes (producto, provee)
+    public IEnumerable<ProveeDTO> GetProveeDetail();
 
-    public ProveeDTO GetByID(int guid);
+    // Usado para mostrar info de ambas tablas (producto y proveedor) una vez dentro de los productos
+    public IEnumerable<ProveeDTO> GetProveeDetail(int guid);
 
-    // Usado para obtener las del producto actual de la tienda
-    public IEnumerable<ProveeDTO> GetAllOfProduct(int guid);
-
-    public ProveeDTO Add(BaseProveeDTO guid);
-
-    public void Delete(int guid);
-
-    public ProveeDTO Modify(BaseProveeDTO provision, int guid);
 }

@@ -1,15 +1,13 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.JsonPatch;
 
+/// <summary>
+/// Interface used for 'Pertenece' service
+/// </summary>
+
 public interface IPerteneceService
 {
-    public IEnumerable<PerteneceDTO> GetAll();
+    // Usado para mostrar info de ambas tablas (producto y temporada) una vez dentro de las temporadas
+    public IEnumerable<PerteneceDTO> GetPerteneceDetail(int guid);
 
-    public PerteneceDTO GetByID(int guid);
-
-    public PerteneceDTO Add(BasePerteneceDTO guid);
-
-    public void Delete(int guid);
-
-    public PerteneceDTO Modify(BasePerteneceDTO pertenencia, int guid);
 }

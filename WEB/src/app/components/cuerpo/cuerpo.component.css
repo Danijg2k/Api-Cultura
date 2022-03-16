@@ -1,0 +1,53 @@
+*{
+  box-sizing: border-box;
+}
+
+/* Remove text of actual string */
+ngb-carousel .sr-only{
+  display: none;
+}
+
+#carouselDiv{
+  /* Comment general margin (next line) for centering */
+  /* margin:0; */
+  /* Top and bot margins */
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  /* Padding */
+  padding: 0;
+  /* Custom width for pc */
+  width: 60vw;
+}
+
+/* Styles for carousel indicators (if width and height not specified won't show) */
+/* .carousel-indicators li {
+  width: 50px;
+  height: 3px;
+  background-color:grey;
+  margin: 1rem;
+}
+
+.carousel-indicators .active {
+  background-color: #ca7397;
+} */
+
+img{
+  width: 100%;
+}
+
+
+h4{
+  text-align: center;
+  padding-left: 15vw;
+  padding-right: 15vw;
+}
+
+@media only screen and (max-width: 600px) {
+  #carouselDiv{
+    /* Custom width for mobile */
+    width: 100vw;
+    /* Remove margins */
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}

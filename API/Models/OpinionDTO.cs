@@ -1,3 +1,7 @@
+/// <summary>
+/// DTO of 'Opinion'
+/// </summary>
+
 public class OpinionDTO : BaseOpinionDTO
 {
     public OpinionDTO()

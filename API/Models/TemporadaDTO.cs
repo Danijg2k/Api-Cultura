@@ -1,3 +1,7 @@
+/// <summary>
+/// DTO of 'Temporada'
+/// </summary>
+
 public class TemporadaDTO : BaseTemporadaDTO
 {
     public TemporadaDTO()

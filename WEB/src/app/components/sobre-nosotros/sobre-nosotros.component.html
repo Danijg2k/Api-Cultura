@@ -1,0 +1,49 @@
+<div class="div_img">
+  <h3>¿Quiénes somos?</h3>
+  <img src="/assets/img/about.jpg" class="img-fluid">
+</div>
+<br>
+<div>
+  <p>API-Cultura existe por y para nuestros usuarios. Nuestro objetivo es proporcionar información de contacto para que cualquier persona sea capaz de encontrar los productos naturales que esté buscando, con el mejor precio, gran facilidad y una interfaz sencilla e intuitiva.</p>
+</div>
+<br>
+<div class="container">
+  <form class="form-floating" [formGroup]="opinionesForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="text" id="nombre" placeholder="Nombre" required class="form-control" formControlName="Nombre">
+          <label for="nombre">Nombre</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="text" id="apellidos" placeholder="Apellidos" class="form-control" formControlName="Apellidos">
+          <label for="apellidos">Apellidos</label>
+        </div>
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="mail" id="email" placeholder="Email" required class="form-control" formControlName="Email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="tel" id="telefono" placeholder="Teléfono" class="form-control" formControlName="Telefono" required>
+          <label for="telefono">Teléfono</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-floating">
+      <ngb-rating class="tamano-estrella" [max]="5" [(rate)]="currentRate"></ngb-rating>
+    </div>
+    <div class="form-floating">
+      <textarea class="form-control text-area-margin text-area" placeholder="Leave a comment here" id="comentario" formControlName="Comentario" required></textarea>
+      <label for="comentario">Comentario</label>
+    </div>
+    <button [disabled]="!opinionesForm.valid" class="btn btn-primary" type="submit">Enviar comentarios</button>
+  </form>
+</div>

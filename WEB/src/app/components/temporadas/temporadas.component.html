@@ -1,0 +1,17 @@
+<div class="container div_general">
+  <h2>Temporadas</h2>
+  <div class="row d-flex justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-3 div_img">
+    <ng-container *ngFor="let t of temporadas">
+      <div class="card border-0">
+        <img [src]="t.img" class="card-img-top rounded-circle" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{ t.nombre }}</p>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-dark btn-blue" [routerLink]="'/temporadas/'+t.id">Ver</button>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+

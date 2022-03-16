@@ -1,3 +1,6 @@
+//Para Swagger
+using System.Reflection;
+//
 using AutoMapper;
 
 public class Startup
@@ -16,6 +19,16 @@ public class Startup
         // Hack con Transient para usar solo un contexto
         services.AddTransient<TiendaContext>(_ =>
             new TiendaContext(Configuration.GetConnectionString("DefaultConnection")));
+
+
+        // Cosa 1 de 2 añadida para Swagger
+        //services.AddSwaggerGen();
+        services.AddSwaggerGen(options =>
+        {
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            options.IncludeXmlComments(xmlPath);
+        });
 
 
 
@@ -47,7 +60,10 @@ public class Startup
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
-
+            // Cosa 2 de 2 añadida para Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            //
         }
         else
         {

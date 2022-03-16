@@ -10,75 +10,46 @@ public class ProvisionesController : ControllerBase
     private readonly ILogger<ProvisionesController> _logger;
     private readonly IProveeService _proveeService;
 
+
+    /// <summary>
+    /// It creates a provisionController
+    /// </summary>
+    /// <param name="logger">used for logging</param>
+    /// <param name="proveeService">used for dealing with the provision data</param>
     public ProvisionesController(ILogger<ProvisionesController> logger, IProveeService proveeService)
     {
         _logger = logger;
         _proveeService = proveeService;
     }
 
+
+    // Usado para poder mostrar cada producto junto a su precio, ya que se encuentran en tablas diferentes (producto, provee)
+    // Solo devuelve un registro con el precio más bajo, no uno por cada proveedor que suministra dicho producto -> TODO
+
+    /// <summary>
+    /// Returns all the Provee with just the info to show each product with its min price -> TODO 
+    /// </summary>
+    /// <returns>Returns a list of <see cref="ProveeDTO"/></returns>
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    public ActionResult<ProveeDTO> Get()
+    public ActionResult<ProveeDTO> GetProveeProductoActual()
     {
-        return Ok(_proveeService.GetAll());
+        return Ok(_proveeService.GetProveeDetail());
     }
 
 
-    [HttpGet("product{IdProd}")]
+    // Usado para mostrar info de ambas tablas (producto y proveedor)
+
+    /// <summary>
+    /// Returns all the Provee by IdProducto
+    /// </summary>
+    /// <param name="IdProducto">the id of the producto</param>
+    /// <returns>Returns a list of <see cref="ProveeDTO"/></returns>
+    [HttpGet("{IdProducto}/detail")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    public ActionResult<ProveeDTO> GetOfProduct(int IdProd)
+    public ActionResult<ProveeDTO> GetProveeProductoActual(int IdProducto)
     {
-        return Ok(_proveeService.GetAllOfProduct(IdProd));
-    }
-
-
-    [HttpGet("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProveeDTO> Get(int Id)
-    {
-        ProveeDTO result = _proveeService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        return Ok(result);
-
-    }
-
-
-    [HttpDelete("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProveeDTO> Delete(int Id)
-    {
-        ProveeDTO result = _proveeService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        _proveeService.Delete(Id);
-
-        return Ok(result);
-
-    }
-
-
-
-    [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    public ActionResult<ProveeDTO> Post([FromBody] BaseProveeDTO baseProvee)
-    {
-
-        return Ok(_proveeService.Add(baseProvee));
-    }
-
-    [HttpPut("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveeDTO))]
-    public ActionResult<ProveeDTO> Put([FromBody] BaseProveeDTO baseProvee, int Id)
-    {
-
-        return Ok(_proveeService.Modify(baseProvee, Id));
+        return Ok(_proveeService.GetProveeDetail(IdProducto));
     }
 
 }

@@ -1,3 +1,7 @@
+/// <summary>
+/// DTO of 'Pertenece'
+/// </summary>
+
 public class PerteneceDTO : BasePerteneceDTO
 {
     public PerteneceDTO()
@@ -6,5 +10,5 @@ public class PerteneceDTO : BasePerteneceDTO
     }
 
 
-    public int Id { get; set; }
+    // public int Id { get; set; }
 }

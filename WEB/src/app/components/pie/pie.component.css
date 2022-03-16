@@ -1,0 +1,15 @@
+.footer{
+  background-color:#307959;
+  padding: 2em;
+  color: white;
+}
+
+
+.icon{
+  width: 40px;
+  height: 40px;
+}
+
+input{
+  background-color: transparent;
+}

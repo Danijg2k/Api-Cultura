@@ -1,8 +1,12 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateBookComponent } from './components/create-book/create-book.component';
-import { ChartComponent } from './pages/chart/chart.component';
+import { ErrorComponent } from './components/error/error.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { HomeComponentComponent } from './pages/home/home-component/home-component.component';
+import { ProductComponent } from './pages/product/product.component';
+import { SeasonComponent } from './pages/season/season.component';
+import { SeasonsComponent } from './pages/seasons/seasons.component';
+import { ShopComponent } from './pages/shop/shop.component';
 
 const routes: Routes = [
   {
@@ -10,13 +14,29 @@ const routes: Routes = [
     component: HomeComponentComponent,
   },
   {
-    path: 'create',
-    component: CreateBookComponent,
+    path: 'tienda',
+    component: ShopComponent,
   },
   {
-    path: 'chart',
-    component: ChartComponent,
-  }
+    path: 'productos/:idProducto',
+    component: ProductComponent,
+  },
+  {
+    path: 'temporadas',
+    component: SeasonsComponent,
+  },
+  {
+    path: 'temporadas/:idTemporada',
+    component: SeasonComponent,
+  },
+  {
+    path: 'sobre-nosotros',
+    component: AboutUsComponent,
+  },
+  {
+    path: '**',
+    component: ErrorComponent,
+  },
 ];
 
 @NgModule({

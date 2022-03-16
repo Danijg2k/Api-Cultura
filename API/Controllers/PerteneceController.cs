@@ -10,66 +10,30 @@ public class PertenenciasController : ControllerBase
     private readonly ILogger<PertenenciasController> _logger;
     private readonly IPerteneceService _perteneceService;
 
+
+    /// <summary>
+    /// It creates a pertenenciaController
+    /// </summary>
+    /// <param name="logger">used for logging</param>
+    /// <param name="perteneceService">used for dealing with the pertenencia data</param>
     public PertenenciasController(ILogger<PertenenciasController> logger, IPerteneceService perteneceService)
     {
         _logger = logger;
         _perteneceService = perteneceService;
     }
 
-    [HttpGet]
+
+    // Usado para mostrar info de ambas tablas (producto y temporada) una vez dentro de las temporadas
+
+    /// <summary>
+    /// Returns all the Pertenece by IdTemporada
+    /// </summary>
+    /// <param name="IdTemporada">the id of the temporada</param>
+    /// <returns>Returns a list of <see cref="PerteneceDTO"/></returns>
+    [HttpGet("{IdTemporada}/detail")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    public ActionResult<PerteneceDTO> Get()
+    public ActionResult<PerteneceDTO> GetPerteneceTemporadaActual(int IdTemporada)
     {
-        return Ok(_perteneceService.GetAll());
+        return Ok(_perteneceService.GetPerteneceDetail(IdTemporada));
     }
-
-    [HttpGet("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<PerteneceDTO> Get(int Id)
-    {
-        PerteneceDTO result = _perteneceService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        return Ok(result);
-
-    }
-
-
-    [HttpDelete("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<PerteneceDTO> Delete(int Id)
-    {
-        PerteneceDTO result = _perteneceService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        _perteneceService.Delete(Id);
-
-        return Ok(result);
-
-    }
-
-
-
-    [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    public ActionResult<PerteneceDTO> Post([FromBody] BasePerteneceDTO basePertenece)
-    {
-
-        return Ok(_perteneceService.Add(basePertenece));
-    }
-
-    [HttpPut("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PerteneceDTO))]
-    public ActionResult<PerteneceDTO> Put([FromBody] BasePerteneceDTO basePertenece, int Id)
-    {
-
-        return Ok(_perteneceService.Modify(basePertenece, Id));
-    }
-
 }

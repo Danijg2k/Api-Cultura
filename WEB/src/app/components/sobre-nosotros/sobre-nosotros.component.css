@@ -1,0 +1,24 @@
+div{
+  text-align: center;
+}
+
+p{
+  padding-left: 17vw;
+  padding-right: 17vw;
+}
+
+input, textarea{
+  margin: 5px;
+}
+
+.tamano-estrella{
+  font-size: 5em;
+}
+
+.text-area{
+  height: 100px;
+}
+
+.div_img{
+  margin-top: 2em;
+}

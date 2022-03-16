@@ -1,3 +1,7 @@
+/// <summary>
+/// Base DTO of 'Opinion', used in creation
+/// </summary>
+
 public class BaseOpinionDTO
 {
     public string Nombre { get; set; }

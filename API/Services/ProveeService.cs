@@ -1,6 +1,10 @@
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 
+/// <summary>
+/// 'Provee' service
+/// </summary>
+
 public class ProveeService : IProveeService
 {
     private readonly TiendaContext _context;
@@ -12,56 +16,51 @@ public class ProveeService : IProveeService
         _mapper = mapper;
     }
 
-    public ProveeDTO Add(BaseProveeDTO baseProvee)
+    // Usado para poder mostrar cada producto junto a su precio, ya que se encuentran en tablas diferentes (producto, provee)
+    public IEnumerable<ProveeDTO> GetProveeDetail()
     {
-        var _mappedProvee = _mapper.Map<ProveeEntity>(baseProvee);
-        var entityAdded = _context.Provisiones.Add(_mappedProvee);
-        _context.SaveChanges();
-        return _mapper.Map<ProveeDTO>(entityAdded);
+        return (from provee in _context.Provisiones
+                join producto in _context.Productos on provee.IdProducto equals producto.Id
+                select new
+                {
+                    IdProducto = producto.Id,
+                    Precio = provee.Precio,
+                    NombreProducto = producto.Nombre,
+                    Img = producto.Img,
+                }).GroupBy(x => new
+                {
+                    x.IdProducto,
+                    x.NombreProducto,
+                    x.Img
+                }).Select(x => new ProveeDTO
+                {
+                    IdProducto = x.Key.IdProducto,
+                    Precio = x.Min(z => z.Precio),
+                    NombreProducto = x.Key.NombreProducto,
+                    Img = x.Key.Img,
+                });
     }
 
-    public void Delete(int guid)
+
+    // Usado para mostrar info de ambas tablas (producto y proveedor)
+    public IEnumerable<ProveeDTO> GetProveeDetail(int guid)
     {
-        ProveeEntity provision = _context.Provisiones.FirstOrDefault(x => x.Id == guid);
-
-        if (provision == null)
-            throw new ApplicationException($"Provision with id {guid} not found");
-
-        _context.Provisiones.Remove(provision);
-        _context.SaveChanges();
+        return (from provee in _context.Provisiones
+                join producto in _context.Productos on provee.IdProducto equals producto.Id
+                join proveedor in _context.Proveedores on provee.IdProveedor equals proveedor.Id
+                where producto.Id == guid
+                select new ProveeDTO
+                {
+                    IdProducto = producto.Id,
+                    IdProveedor = proveedor.Id,
+                    Precio = provee.Precio,
+                    NombreProducto = producto.Nombre,
+                    Img = producto.Img,
+                    NombreProveedor = proveedor.Nombre,
+                    Poblacion = proveedor.Poblacion,
+                    Telefono = proveedor.Telefono
+                });
     }
 
-    public IEnumerable<ProveeDTO> GetAll()
-    {
-        return _mapper.Map<IEnumerable<ProveeDTO>>(_context.Provisiones.Select(x => x));
-    }
-
-    // Obtener todos los Provee del producto actual.
-    public IEnumerable<ProveeDTO> GetAllOfProduct(int guid)
-    {
-        return _mapper.Map<IEnumerable<ProveeDTO>>(_context.Provisiones.Where(x => x.IdProducto == guid));
-    }
-
-    public ProveeDTO GetByID(int guid)
-    {
-        return _mapper.Map<ProveeDTO>(_context.Provisiones.FirstOrDefault(x => x.Id == guid));
-    }
-
-    public ProveeDTO Modify(BaseProveeDTO provision, int guid)
-    {
-        var _mappedProvee = _mapper.Map<ProveeEntity>(provision);
-        _mappedProvee.Id = guid;
-
-        ProveeEntity modifiedProvee = _context.Provisiones.FirstOrDefault(x => x.Id == guid);
-
-        if (modifiedProvee == null)
-            return null;
-
-        _context.Entry(modifiedProvee).CurrentValues.SetValues(_mappedProvee);
-
-        _context.SaveChanges();
-
-        return _mapper.Map<ProveeDTO>(_mappedProvee);
-    }
 
 }

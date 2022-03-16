@@ -1,5 +1,9 @@
 using AutoMapper;
 
+/// <summary>
+/// Mapper for 'Pertenece' DTO - Entity
+/// </summary>
+
 public class PerteneceProfile : Profile
 {
     public PerteneceProfile()

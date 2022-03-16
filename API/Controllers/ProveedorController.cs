@@ -10,12 +10,23 @@ public class ProveedoresController : ControllerBase
     private readonly ILogger<ProveedoresController> _logger;
     private readonly IProveedorService _proveedorService;
 
+
+    /// <summary>
+    /// It creates a proveedorController
+    /// </summary>
+    /// <param name="logger">used for logging</param>
+    /// <param name="proveedorService">used for dealing with the proveedor data</param>
     public ProveedoresController(ILogger<ProveedoresController> logger, IProveedorService proveedorService)
     {
         _logger = logger;
         _proveedorService = proveedorService;
     }
 
+
+    /// <summary>
+    /// Returns all the Proveedores
+    /// </summary>
+    /// <returns>Returns a list of <see cref="ProveedorDTO"/></returns>
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
     public ActionResult<ProveedorDTO> Get()
@@ -23,53 +34,54 @@ public class ProveedoresController : ControllerBase
         return Ok(_proveedorService.GetAll());
     }
 
-    [HttpGet("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProveedorDTO> Get(int Id)
-    {
-        ProveedorDTO result = _proveedorService.GetByID(Id);
 
-        if (result == null)
-            return NotFound();
+    // [HttpGet("{Id}")]
+    // [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
+    // [ProducesResponseType(StatusCodes.Status404NotFound)]
+    // public ActionResult<ProveedorDTO> Get(int Id)
+    // {
+    //     ProveedorDTO result = _proveedorService.GetByID(Id);
 
-        return Ok(result);
+    //     if (result == null)
+    //         return NotFound();
 
-    }
+    //     return Ok(result);
 
-
-    [HttpDelete("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<ProveedorDTO> Delete(int Id)
-    {
-        ProveedorDTO result = _proveedorService.GetByID(Id);
-
-        if (result == null)
-            return NotFound();
-
-        _proveedorService.Delete(Id);
-
-        return Ok(result);
-
-    }
+    // }
 
 
+    // [HttpDelete("{Id}")]
+    // [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
+    // [ProducesResponseType(StatusCodes.Status404NotFound)]
+    // public ActionResult<ProveedorDTO> Delete(int Id)
+    // {
+    //     ProveedorDTO result = _proveedorService.GetByID(Id);
 
-    [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
-    public ActionResult<ProveedorDTO> Post([FromBody] BaseProveedorDTO baseProveedor)
-    {
+    //     if (result == null)
+    //         return NotFound();
 
-        return Ok(_proveedorService.Add(baseProveedor));
-    }
+    //     _proveedorService.Delete(Id);
 
-    [HttpPut("{Id}")]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
-    public ActionResult<ProveedorDTO> Put([FromBody] BaseProveedorDTO baseProveedor, int Id)
-    {
+    //     return Ok(result);
 
-        return Ok(_proveedorService.Modify(baseProveedor, Id));
-    }
+    // }
+
+
+
+    // [HttpPost]
+    // [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
+    // public ActionResult<ProveedorDTO> Post([FromBody] BaseProveedorDTO baseProveedor)
+    // {
+
+    //     return Ok(_proveedorService.Add(baseProveedor));
+    // }
+
+    // [HttpPut("{Id}")]
+    // [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProveedorDTO))]
+    // public ActionResult<ProveedorDTO> Put([FromBody] BaseProveedorDTO baseProveedor, int Id)
+    // {
+
+    //     return Ok(_proveedorService.Modify(baseProveedor, Id));
+    // }
 
 }
