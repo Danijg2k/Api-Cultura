@@ -16,3 +16,12 @@ div{
 .div_img{
   margin-top: 2em;
 }
+
+.div_meses{
+  width: fit-content;
+  text-align: left;
+}
+
+.meses{
+  display: inline;
+}

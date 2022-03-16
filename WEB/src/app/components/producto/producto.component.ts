@@ -29,14 +29,9 @@ export class ProductoComponent implements OnInit {
       this.idProducto = parameters.get('idProducto');
     });
 
-    // this._proveeService
-    //   .getProveeData(this.idProducto)
-    //   .subscribe((x) => (this.provee = x) && this.saveData());
-
-    this._proveeService.getProveeData(this.idProducto).subscribe({
-      next: (x) => (this.provee = x) && this.saveData(),
-      error: (e) => alert('No hay resultados'),
-    });
+    this._proveeService
+      .getProveeData(this.idProducto)
+      .subscribe((x) => (this.provee = x) && this.saveData());
   }
 
   // Solo entra en esta función si puede hacer el get anterior (si no existe provee para esa idProducto nada)
