@@ -3,8 +3,8 @@ div{
 }
 
 p{
-  padding-left: 22vw;
-  padding-right: 22vw;
+  padding-left: 17vw;
+  padding-right: 17vw;
 }
 
 input, textarea{
@@ -17,4 +17,8 @@ input, textarea{
 
 .text-area{
   height: 100px;
+}
+
+.div_img{
+  margin-top: 2em;
 }

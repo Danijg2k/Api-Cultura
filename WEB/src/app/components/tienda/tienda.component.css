@@ -8,7 +8,11 @@ div{
   margin-right: 15px;
 }
 
-.margin_tienda{
+.div_general{
   margin-top: 2em;
   margin-bottom: 2em;
+}
+
+.div_img{
+  margin-top: 2em;
 }

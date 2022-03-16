@@ -8,7 +8,7 @@
 
     <div class="row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-md-2 g-2 vendedores">
       <ng-container *ngFor="let p of provee">
-        <div class="card" style="width: 20rem;">
+        <div class="card border-0" style="width: 20rem;">
           <div class="card-body">
             <p class="card-text">{{ p.nombreProveedor }}</p>
             <p *ngIf="nombreProducto=='Huevos';else elseBlock">

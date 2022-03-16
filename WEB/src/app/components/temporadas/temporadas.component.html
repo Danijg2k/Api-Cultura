@@ -1,28 +1,17 @@
-<h2>Temporadas</h2>
-<div class="container" >
-  <div class="row row-cols-5 row-cols-sm-5 row-cols-md-5 row-cols-md-5 g-5" >
-    <img src="/assets/Temporadas/primavera.jpg" class="card-img-top rounded-circle img-fluid" alt="Primavera">
-    <div class="card-body">
-      <h5 class="card-title">Primavera</h5>
-      <a href="" class="btn btn-primary">Ver</a>
-    </div>
-
-    <img src="/assets/Temporadas/verano.jpg" class="card-img-top rounded-circle img-fluid" alt="Verano">
-    <div class="card-body">
-      <h5 class="card-title">Verano</h5>
-      <a href="" class="btn btn-primary">Ver</a>
-    </div>
-
-    <img src="/assets/Temporadas/otono.jpg" class="card-img-top rounded-circle img-fluid" alt="Otoño">
-    <div class="card-body">
-      <h5 class="card-title">Otoño</h5>
-      <a href="" class="btn btn-primary">Ver</a>
-    </div>
-
-    <img src="/assets/Temporadas/invierno.jpeg" class="card-img-top rounded-circle img-fluid" alt="Invierno">
-    <div class="card-body">
-      <h5 class="card-title">Invierno</h5>
-      <a href="" class="btn btn-primary">Ver</a>
-    </div>
+<div class="container div_general">
+  <h2>Temporadas</h2>
+  <div class="row d-flex justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-3 div_img">
+    <ng-container *ngFor="let t of temporadas">
+      <div class="card border-0">
+        <img [src]="t.img" class="card-img-top rounded-circle" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{ t.nombre }}</p>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-dark btn-blue" [routerLink]="'/temporadas/'+t.id">Ver</button>
+      </div>
+    </ng-container>
   </div>
 </div>
+
+
+
