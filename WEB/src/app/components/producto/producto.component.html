@@ -1,21 +1,29 @@
-
 <div class="container" >
   <h2 class="nombreProducto">{{ nombreProducto }}</h2>
-  <img [src]="imgProducto" class="card-img-top imagen shadow">
   <p>Vendedores disponibles</p>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-3" >
-    <ng-container *ngFor="let p of provee">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <p class="card-text">{{ p.nombreProveedor }}</p>
-          <p *ngIf="nombreProducto=='Huevos';else elseBlock">
-            Precio: {{ p.precio }}€/cartón
-          </p>
-          <ng-template #elseBlock>Precio: {{ p.precio }}€/kg</ng-template>
-          <p class="card-text">Población: {{ p.poblacion }}</p>
-          <p class="card-text">Tlfn: {{ p.telefono }}</p>
+  <div class="row  d-flex justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 g-3" >
+    <div class="img">
+      <img [src]="imgProducto" class="card-img-top imagen shadow">
+    </div>
+
+    <div class="row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-md-2 g-2 vendedores">
+      <ng-container *ngFor="let p of provee">
+        <div class="card" style="width: 20rem;">
+          <div class="card-body">
+            <p class="card-text">{{ p.nombreProveedor }}</p>
+            <p *ngIf="nombreProducto=='Huevos';else elseBlock">
+              Precio: {{ p.precio }}€/cartón
+            </p>
+            <ng-template #elseBlock>Precio: {{ p.precio }}€/kg</ng-template>
+            <p class="card-text">Población: {{ p.poblacion }}</p>
+            <p class="card-text">Tlfn: {{ p.telefono }}</p>
+          </div>
         </div>
-      </div>
-    </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <br>
+  <div class="mapa">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.0944218816467!2d-1.9591436331935035!3d42.31918479432231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe2ae1aa1bfa845b0!2zNDLCsDE5JzA5LjEiTiAxwrA1NycyNy40Ilc!5e0!3m2!1ses!2ses!4v1647392507989!5m2!1ses!2ses" width="650" height="300"></iframe>
   </div>
 </div>
