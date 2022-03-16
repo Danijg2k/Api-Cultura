@@ -11,7 +11,7 @@ ngb-carousel .sr-only{
   /* Comment general margin (next line) for centering */
   /* margin:0; */
   /* Top and bot margins */
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
   /* Padding */
   padding: 0;
@@ -35,6 +35,7 @@ img{
   width: 100%;
 }
 
+
 h4{
   text-align: center;
   padding-left: 15vw;
@@ -46,6 +47,7 @@ h4{
     /* Custom width for mobile */
     width: 100vw;
     /* Remove margins */
-    margin: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
 }
