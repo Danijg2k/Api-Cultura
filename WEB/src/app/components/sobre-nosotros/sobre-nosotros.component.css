@@ -10,3 +10,11 @@ p{
 input, textarea{
   margin: 5px;
 }
+
+.tamano-estrella{
+  font-size: 5em;
+}
+
+.text-area{
+  height: 100px;
+}

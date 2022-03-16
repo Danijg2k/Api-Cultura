@@ -8,17 +8,17 @@
 </div>
 <br>
 <div class="container">
-  <form class="form-floating">
+  <form class="form-floating" [formGroup]="opinionesForm" (ngSubmit)="onSubmit()">
     <div class="row g-2">
       <div class="col-md">
         <div class="form-floating">
-          <input type="text" id="nombre" placeholder="Nombre" required class="form-control">
+          <input type="text" id="nombre" placeholder="Nombre" required class="form-control" formControlName="Nombre">
           <label for="nombre">Nombre</label>
         </div>
       </div>
       <div class="col-md">
         <div class="form-floating">
-          <input type="text" id="apellidos" placeholder="Apellidos" class="form-control">
+          <input type="text" id="apellidos" placeholder="Apellidos" class="form-control" formControlName="Apellidos">
           <label for="apellidos">Apellidos</label>
         </div>
       </div>
@@ -26,24 +26,24 @@
     <div class="row g-2">
       <div class="col-md">
         <div class="form-floating">
-          <input type="mail" id="email" placeholder="Email" required class="form-control">
+          <input type="mail" id="email" placeholder="Email" required class="form-control" formControlName="Email">
           <label for="email">Email</label>
         </div>
       </div>
       <div class="col-md">
         <div class="form-floating">
-          <input type="tel" id="telefono" placeholder="Teléfono" class="form-control">
+          <input type="tel" id="telefono" placeholder="Teléfono" class="form-control" formControlName="Telefono" required>
           <label for="telefono">Teléfono</label>
         </div>
       </div>
     </div>
     <div class="form-floating">
-      <ngb-rating [(rate)]="currentRate"></ngb-rating>
+      <ngb-rating class="tamano-estrella" [max]="5" [(rate)]="currentRate"></ngb-rating>
     </div>
     <div class="form-floating">
-      <textarea class="form-control text-area-margin" placeholder="Leave a comment here" id="comentario" style="height: 100px"></textarea>
+      <textarea class="form-control text-area-margin text-area" placeholder="Leave a comment here" id="comentario" formControlName="Comentario" required></textarea>
       <label for="comentario">Comentario</label>
     </div>
-    <button class="btn btn-primary" type="submit">Enviar comentarios</button>
+    <button [disabled]="!opinionesForm.valid" class="btn btn-primary" type="submit">Enviar comentarios</button>
   </form>
 </div>
